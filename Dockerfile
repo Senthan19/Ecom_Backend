@@ -1,14 +1,14 @@
-# 1. Base image (Java 17 JDK)
+# Use Java 17 JDK
 FROM eclipse-temurin:17-jdk
 
-# 2. Working directory inside container
+# Working directory
 WORKDIR /app
 
-# 3. Copy everything from repo into container
+# Copy everything to container
 COPY . .
 
-# 4. Build the project (skip tests for faster build)
+# Build project
 RUN ./mvnw clean package -DskipTests
 
-# 5. Run the built JAR file
-CMD ["java", "-jar", "target/*.jar"]
+# Run the jar
+CMD ["java", "-jar", "target/E-Commerce-0.0.1-SNAPSHOT.jar"]
